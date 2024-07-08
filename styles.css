@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+    --color-Dark-Blue-300: #072B61;
+    --color-boton2: #356EA9;
+    --color-principal: #609ED4;
+    --color-fondoTexto: #EFF1FA;
+    --fuente-inter: 'Inter', sans-serif;
+}
+
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Importante para incluir el padding y borde en el tamaño total del elemento */
+}
+
+body{
+    background-color: var(--color-principal);
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 48px;  
+    padding: 40px  0 0 40px;  
+    
+}
+.imgLogo{
+    width: 31.09px;
+    align-self: center;
+}
+
+main{
+    display: flex;
+    margin-left: 80px;
+    margin-bottom: 50px;
+    gap: 20px;
+    font-family: var(--fuente-inter);
+    font-size: 1rem;
+}
+
+.sectionDesencriptar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.textoNuevo::placeholder{
+    font-family: var(--fuente-inter);
+    color: var(--color-Dark-Blue-300);
+    font-size: 1.6rem;
+}
+
+.textoNuevo{
+    font-family: var(--fuente-inter);
+    font-size: 1.2rem;
+    color: var(--color-Dark-Blue-300);
+    margin-top: 80px;
+    width: 680px;
+    height: 288px;
+    background-color: var(--color-principal);
+    border: none;
+    outline: none; /* Quita el borde al hacer clic */
+    resize: none; /* Evita el redimensionamiento */
+}
+
+
+.imgExclamacion{
+    width: 16px;
+}
+.containerInstrucciones{
+    display: flex;
+    gap: 20px;
+}
+
+.textoEncriptado{
+    font-family: var(--fuente-inter);
+    font-size: 1.2rem;
+    columns: var(--color-Dark-Blue-300);
+    width: 400px;
+    height: 370px;    
+    background-color: var(--color-fondoTexto);
+    background-image: url(./imagenes/codeBinario.png);
+    background-size: 400px;
+    position: relative;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+button{
+    width: 250px;
+    height: 67px;
+    border-radius: 20px;
+}
+
+.containerBotones{
+    display: flex;
+    gap: 24px; /* espacio entre los botones */
+    width: 680px;
+    height: 67px;
+    padding-top: 20px;
+}
+
+/* Media queries para pantallas responsivas */
+@media (max-width: 1440px) {
+    /* Ajustes para pantallas grandes */
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para tablet */
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sectionDesencriptar {
+        width: 100%;
+        max-width: 375px;
+        height: auto;
+    }
+    .textoEncriptado {
+        height: 370px;
+    }
+}
+
+@media (max-width: 375px) {
+    /* Ajustes para móviles */
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sectionDesencriptar {
+        width: 100%;
+        max-width: 375px;
+        height: auto;
+    }
+    .textoEncriptado {
+        height: 370px;
+    }
+}
