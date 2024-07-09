@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
 
 :root {
-    --color-Dark-Blue-300: #072B61;
+    --color-Dark-Blue-300: #050C9C;
     --color-boton2: #356EA9;
-    --color-principal: #609ED4;
-    --color-fondoTexto: #EFF1FA;
+    --color-principal: #3ABEF9;
+    --color-fondoTexto: #A7E6FF;
     --fuente-inter: 'Inter', sans-serif;
+    --fuente-titulo:"Rowdies", sans-serif;
 }
 
 /* Reset de márgenes y padding */
@@ -15,191 +17,181 @@
     box-sizing: border-box; /* Importante para incluir el padding y borde en el tamaño total del elemento */
 }
 
-body{
+body {
     background-color: var(--color-principal);
     width: 100%;
-    max-width: 1440px;
-    max-height: 1024px;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-header{
-    width: 100%; 
-    background-color: aquamarine;
-    
-    
-    
-}
-.imgLogo{
-    width: 31.09px;
-    margin: 40px 0 0 100px;
-    
-    
-}
-
-main{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
     font-family: var(--fuente-inter);
-    font-size: 1rem;
-    background-color: aqua;
-}
-
-.sectionEncriptar{
-    padding: 20px;
-    background-color: red;
-    justify-content: center;
-    align-items: center;
-    padding-left: 240px;
-
-}
-
-.textoNuevo::placeholder{
-    font-family: var(--fuente-inter);
-    color: var(--color-Dark-Blue-300);
-    font-size: 1.6rem;
-}
-
-.textoNuevo{
-    font-family: var(--fuente-inter);
-    font-size: 1.2rem;
-    color: var(--color-Dark-Blue-300);
-    width: 100%;
-    height: 288px;
-    background-color: var(--color-principal);
-    border: none;
-    outline: none; /* Quita el borde al hacer clic */
-    resize: none; /* Evita el redimensionamiento */
-    
-}
-
-
-.imgExclamacion{
-    width: 16px;
-}
-.containerInstrucciones{
-    display: flex;
-    gap: 20px;
-    padding-top: 20px;
-}
-
-
-button{
-    width: 250px;
-    height: 67px;
-    border-radius: 20px;
-    font-family: var(--fuente-inter);
-    font-size: 1.5rem;
-    
-}
-
-.containerBotones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* espacio entre los botones */
-    width: 680px;
-    height: 67px;
-    
-}
-
-.btnEncriptar{
-    background-color: var(--color-Dark-Blue-300);
-    color: var(--color-fondoTexto);
-    border: 5px solid var(--color-Dark-Blue-300);
-
-}
-
-.btnDesencriptar{
-    background-color: var(--color-fondoTexto);
-    border: 5px solid var(--color-Dark-Blue-300);
-    color: var(--color-Dark-Blue-300);
-}
-
-.btnCopiar{
-    background-color: var(--color-fondoTexto);
-    border: 5px solid var(--color-Dark-Blue-300);
-    color: var(--color-Dark-Blue-300);
-}
-
-.sectionDesencriptar{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    width: 40%;
-    background-color: orange;
-    padding: 10px;
+    margin: 0 auto;
 }
 
-.textoEncriptado{
-    font-family: var(--fuente-inter);
-    font-size: 1.2rem;
-    columns: var(--color-Dark-Blue-300);
-    width: 90%;
-    height: 600px;    
-    background-color: var(--color-fondoTexto);
-    background-image: url(./imagenes/codeBinario.png);
-    background-size: 400px;
-    position: relative;
-    background-repeat: no-repeat;
-    border: none;
+header {
+    display: flex;
+    width: 100%; 
+    background-color: var(--color-principal);
+    margin-top: 40px;
+
 }
 
-footer{
-    background-color: pink;
+.containerLogo img {
+    margin-left: 40px;
+    height: 48px;
+
+}
+
+.containerTitulo {
+    font-family: var(--fuente-titulo);
+    letter-spacing: 5px;
     width: 100%;
-    max-width: 1440px;
+    text-align: center;
+    margin-right: 70px;
+
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-around; /* Distribuye los section horizontalmente */
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sectionEncriptar,
+.sectionDesencriptar {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    background-color: var(--color-fondoTexto);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.sectionEncriptar textarea,
+.sectionDesencriptar textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: none;
+    border-style: none;
+}
+
+.textoNuevo::placeholder,
+.textoEncriptado::placeholder {
+    font-family: var(--fuente-inter);
+    color: var(--color-Dark-Blue-300);
+    font-size: 1rem; 
+    resize: none;
+}
+
+.textoNuevo{
+    background: none;
+    outline: none;
+    resize: none;
+}
+
+.containerInstrucciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.containerInstrucciones img {
+    width: 20px;
+}
+
+.containerBotones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    width: 48%;
+    height: 50px;
+    border-radius: 5px;
+    font-family: var(--fuente-inter);
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid var(--color-Dark-Blue-300);
+}
+
+.btnEncriptar {
+    background-color: var(--color-Dark-Blue-300);
+    color: var(--color-fondoTexto);
+}
+
+.btnDesencriptar {
+    background-color: var(--color-fondoTexto);
+    color: var(--color-Dark-Blue-300);
+    
+}
+
+.btnCopiar{
+    width: 100%;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    border-color: 2px solid (--color-Dark-Blue-300)
+    
+}
+.sectionDesencriptar {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.textoFooter{
+
+
+footer {
+    background-color: var(--color-principal);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.textoFooter {
     font-family: var(--fuente-inter);
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 /* Media queries para pantallas responsivas */
-@media (max-width: 1440px) {
-    /* Ajustes para pantallas grandes */
-}
-
-@media (max-width: 768px) {
-    /* Ajustes para tablet */
+@media (max-width: 1200px) {
     main {
         flex-direction: column;
         align-items: center;
     }
+    .sectionEncriptar,
     .sectionDesencriptar {
-        width: 100%;
-        max-width: 375px;
-        height: auto;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionEncriptar,
+    .sectionDesencriptar {
+        max-width: 100%;
     }
     .textoEncriptado {
-        height: 370px;
+        height: 200px;
     }
 }
 
 @media (max-width: 375px) {
-    /* Ajustes para móviles */
-    main {
-        flex-direction: column;
-        align-items: center;
-    }
+    .sectionEncriptar,
     .sectionDesencriptar {
-        width: 100%;
-        max-width: 375px;
-        height: auto;
+        max-width: 100%;
     }
     .textoEncriptado {
-        height: 370px;
+        height: 150px;
     }
 }
