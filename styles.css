@@ -123,22 +123,27 @@ button:hover {
     color: var(--color-Dark-Blue);
 }
 
-.conteinerbtnCopiar {
+.continerbtnCopiar {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .btnCopiar {
-    margin-top: 50px;
+    margin-top: 10px;
     background-color: var(--color-boton);
     color: var(--color-Dark-Blue);
     border: 2px solid var(--color-Dark-Blue);
 }
 
+
 .textoEncriptado {
+    background-image: url(./imagenes/Muñeco.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     width: 100%;
-    height: 200px;
+    height: 250px;
     padding: 10px;
     outline: none;
     resize: none;
