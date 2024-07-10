@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
 
 :root {
-    --color-Dark-Blue-300: #050C9C;
-    --color-boton2: #356EA9;
+    --color-Dark-Blue: #050C9C;
+    --color-boton: #0099ff;
     --color-principal: #3ABEF9;
     --color-fondoTexto: #A7E6FF;
     --fuente-inter: 'Inter', sans-serif;
-    --fuente-titulo:"Rowdies", sans-serif;
+    --fuente-titulo: 'Rowdies', sans-serif;
 }
 
 /* Reset de márgenes y padding */
@@ -32,14 +32,12 @@ header {
     width: 100%; 
     background-color: var(--color-fondoTexto);
     padding-top: 20px;
-
 }
 
 .containerLogo img {
-    margin-left: 40px;
+    margin-left: 100px;
     height: 48px;
     margin-bottom: 20px;
-
 }
 
 .containerTitulo {
@@ -47,8 +45,8 @@ header {
     letter-spacing: 5px;
     width: 100%;
     text-align: center;
-    margin-right: 70px;
-
+    margin-right: 100px;
+    color: var(--color-Dark-Blue);
 }
 
 main {
@@ -67,33 +65,24 @@ main {
     padding: 20px;
     background-color: var(--color-fondoTexto);
     border-radius: 10px;
-    -webkit-box-shadow: 0px 12px 24px -11px rgba(5,12,156,1);
-    -moz-box-shadow: 0px 12px 24px -11px rgba(5,12,156,1);
-    box-shadow: 0px 12px 24px -11px rgba(5,12,156,1);
+    box-shadow: 0px 12px 24px -11px rgba(5, 12, 156, 1);
+    width: 100%;
 }
 
+.textoNuevo::placeholder {
+    font-family: var(--fuente-inter);
+    color: var(--color-Dark-Blue);
+    font-size: 1rem; 
+}
 
-textarea {
+.textoNuevo {
     width: 100%;
     height: 200px;
     padding: 10px;
-    border: none;
-    border-style: none;
-    
-}
-
-
-.textoNuevo::placeholder{
-    font-family: var(--fuente-inter);
-    color: var(--color-Dark-Blue-300);
-    font-size: 1rem; 
-    resize: none;
-}
-
-.textoNuevo{
     background: none;
     outline: none;
     resize: none;
+    border: none;
 }
 
 .containerInstrucciones {
@@ -109,49 +98,53 @@ textarea {
 
 .containerBotones {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 20px;
 }
 
 button {
-    width: 48%;
+    width: 45%;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 20px;
     font-family: var(--fuente-inter);
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    border: 2px solid var(--color-Dark-Blue-300);
+    border: 2px solid var(--color-Dark-Blue);
 }
 
-.btnEncriptar {
-    background-color: var(--color-Dark-Blue-300);
-    color: var(--color-fondoTexto);
+button:hover {
+    background-color: var(--color-Dark-Blue);
+    color: #FFFFFF;
 }
 
+.btnEncriptar,
 .btnDesencriptar {
-    background-color: var(--color-fondoTexto);
-    color: var(--color-Dark-Blue-300);
-    
+    background-color: var(--color-boton);
+    color: var(--color-Dark-Blue);
 }
 
-.btnCopiar{
-    width: 100%;
-    margin-top: 50px;
+.conteinerbtnCopiar {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-Dark-Blue-300);
-    border-color: 2px solid (--color-Dark-Blue-300);
-    
 }
 
+.btnCopiar {
+    margin-top: 50px;
+    background-color: var(--color-boton);
+    color: var(--color-Dark-Blue);
+    border: 2px solid var(--color-Dark-Blue);
+}
 
-.textoEncriptado{
+.textoEncriptado {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
     outline: none;
-    resize: none;;
+    resize: none;
+    border: none;
+    border-radius: 10px;
 }
-
-
 
 footer {
     width: 100%;
@@ -170,15 +163,14 @@ footer {
     font-family: var(--fuente-inter);
     font-size: 1.5rem;
     color: var(--color-fondoTexto);
-    background-color: var(--color-Dark-Blue-300);
+    background-color: var(--color-Dark-Blue);
     height: 70px;
     width: 100%;
 }
 
-.banderaES{
+.banderaES {
     height: 50px;
     padding-left: 50px;
-
 }
 
 /* Media queries para pantallas responsivas */
@@ -202,14 +194,44 @@ footer {
     .textoEncriptado {
         height: 200px;
     }
+    button {
+        font-size: 1.2rem; /* Ajustar tamaño de fuente en pantallas medianas */
+    }
+    header{
+        padding-left: 50PX;
+    }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 350px) {
     .sectionEncriptar,
     .sectionDesencriptar {
         max-width: 100%;
     }
     .textoEncriptado {
-        height: 150px;
+        height: 200px;
     }
+    button {
+        font-size: .8rem; /* Ajustar tamaño de fuente en pantallas pequeñas */
+    }
+    .textoFooter{
+        font-size: 1rem;
+    }
+    h1{
+        font-size: 1rem;
+    }
+    .imgLogo{
+        padding-right: 20px;
+    }
+    header{
+        width: 100%;
+        padding-left: 1px;
+    }
+    .textoFooter{
+        font-size: .8rem;
+    }
+    .sectionDesencriptar{
+        margin: 0%;
+        padding: 0%;
+    }
+   
 }
