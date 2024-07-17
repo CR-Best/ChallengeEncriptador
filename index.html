@@ -15,12 +15,12 @@
             <div class="containerTitulo">
                 <h1>ENCRIPTADOR DE TEXTO</h1>
             </div>
-            
         </header>
     
         <main>
             <section class="sectionEncriptar">
-                <textarea class="textoNuevo" placeholder="Ingrese el texto aqui"></textarea>
+                <textarea id="input-text" class="textoNuevo" placeholder="Ingrese el texto aqui"></textarea>
+                <div id="alert" class="alert"></div>
 
                 <div class="containerInstrucciones">
                     <img class="imgExclamacion" src="./imagenes/iconoExclamacion.svg" alt="Simbolo de exclamacion redondo">
@@ -31,32 +31,27 @@
                 </div>
 
                 <div class="containerBotones">
-                    <button class="btnEncriptar">Encriptar</button>
-                    <button class="btnDesencriptar">Desencriptar</button>
+                    <button class="btnEncriptar" id="btn-encriptar">Encriptar</button>
+                    <button class="btnDesencriptar" id="btn-desencriptar">Desencriptar</button>
                 </div>
             </section>
     
             <section class="sectionDesencriptar">
                 
-                <textarea class="textoEncriptado" cols="20" rows="10"></textarea>
+                <textarea id="output-text" class="textoEncriptado con-imagen" cols="20" rows="10"></textarea>
                 
                 <div class="continerbtnCopiar">
-                    <button class="btnCopiar">Copiar</button>
+                    <button id="btn-copiar" class="btnCopiar">Copiar</button>
                 </div>
-            
-                
-                
             </section>
         </main>
 
         <footer>
             <p class="textoFooter">
                 Carlos Rosales | El Salvador 
-                
-                <img class="banderaES" src="./imagenes/ES-flag.png" alt="Bandera de El Salvador">
-
+                <img id="placeholder-img" class="banderaES" src="./imagenes/ES-flag.png" alt="Bandera de El Salvador">
             </p>
-            
         </footer>
+        <script src="script.js"></script>
     </body>
-    </html>
+</html>
