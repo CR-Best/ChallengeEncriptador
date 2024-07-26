@@ -41,9 +41,19 @@ function ocultarAlerta() {
     alerta.style.display = 'none';
 }
 
+// Función para cambiar el color de fondo del botón temporalmente
+function cambiarColorTemporalmente(boton, colorOriginal, colorTemporal) {
+    boton.style.backgroundColor = colorTemporal;
+    setTimeout(() => {
+        boton.style.backgroundColor = colorOriginal;
+    }, 200); // Duración del color temporal en milisegundos
+}
+
 // Evento para el botón de encriptar
-document.getElementById("btn-encriptar").addEventListener('click', function () {
+document.getElementById("btn-encriptar").addEventListener('click', function (event) {
     let textoEntrada = document.getElementById('input-text').value;
+    let boton = event.currentTarget;
+    cambiarColorTemporalmente(boton, "#0099ff", "#ff6600");
 
     if (validarTexto(textoEntrada)) {
         ocultarAlerta();
@@ -51,6 +61,9 @@ document.getElementById("btn-encriptar").addEventListener('click', function () {
         let textoSalida = document.getElementById('output-text');
         textoSalida.style.display = 'block';
         textoSalida.value = textoEncriptado;
+
+        // Limpiar el textarea de entrada
+        document.getElementById('input-text').value = '';
 
         if (textoEncriptado) {
             document.getElementById('placeholder-img').style.display = 'none';
@@ -66,9 +79,11 @@ document.getElementById("btn-encriptar").addEventListener('click', function () {
     }
 });
 
-// Evento para el botón de desencriptar
-document.getElementById("btn-desencriptar").addEventListener('click', function () {
+// Evento para el botón de desencriptar (continuación)
+document.getElementById("btn-desencriptar").addEventListener('click', function (event) {
     let textoEntrada = document.getElementById('input-text').value;
+    let boton = event.currentTarget;
+    cambiarColorTemporalmente(boton, "#0099ff", "#ff6600");
 
     if (validarTexto(textoEntrada)) {
         ocultarAlerta();
@@ -76,6 +91,9 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
         let textoSalida = document.getElementById('output-text');
         textoSalida.style.display = 'block';
         textoSalida.value = textoDesencriptado;
+
+        // Limpiar el textarea de entrada
+        document.getElementById('input-text').value = '';
 
         if (textoDesencriptado) {
             document.getElementById('placeholder-img').style.display = 'none';
@@ -91,3 +109,9 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
     }
 });
 
+// Evento para el botón de copiar
+document.getElementById("btn-copiar").addEventListener('click', function () {
+    let textoSalida = document.getElementById('output-text');
+    textoSalida.select();
+    document.execCommand('copy');
+});
