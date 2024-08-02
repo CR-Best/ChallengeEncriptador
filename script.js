@@ -79,7 +79,19 @@ document.getElementById("btn-encriptar").addEventListener('click', function (eve
     }
 });
 
-// Evento para el botón de desencriptar (continuación)
+// Funciones para mostrar y ocultar alertas
+function mostrarAlerta(mensaje) {
+    let alerta = document.getElementById('alerta');
+    alerta.style.display = 'block';
+    alerta.textContent = mensaje;
+}
+
+function ocultarAlerta() {
+    let alerta = document.getElementById('alerta');
+    alerta.style.display = 'none';
+}
+
+// Evento para el botón de desencriptar
 document.getElementById("btn-desencriptar").addEventListener('click', function (event) {
     let textoEntrada = document.getElementById('input-text').value;
     let boton = event.currentTarget;
@@ -108,6 +120,7 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
         mostrarAlerta('El texto contiene caracteres no permitidos. Use solo letras minúsculas sin acentos ni caracteres especiales.');
     }
 });
+
 
 // Evento para el botón de copiar
 document.getElementById("btn-copiar").addEventListener('click', function () {
