@@ -59,10 +59,21 @@ main {
     padding: 20px;
 }
 
+.alerta {
+    color: white;
+    background-color: red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
 .sectionEncriptar{
     background-color: var(--color-principal);
     width: 50%;
     height: 600px;
+    margin-bottom: 50px;
 }
 
 .sectionDesencriptar {
