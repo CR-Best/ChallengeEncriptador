@@ -30,14 +30,14 @@ function validarTexto(texto) {
 
 // Función para mostrar alertas
 function mostrarAlerta(mensaje) {
-    let alerta = document.getElementById('alert');
+    let alerta = document.getElementById('alerta');
     alerta.textContent = mensaje;
     alerta.style.display = 'block';
 }
 
 // Función para ocultar alertas
 function ocultarAlerta() {
-    let alerta = document.getElementById('alert');
+    let alerta = document.getElementById('alerta');
     alerta.style.display = 'none';
 }
 
@@ -46,7 +46,7 @@ function cambiarColorTemporalmente(boton, colorOriginal, colorTemporal) {
     boton.style.backgroundColor = colorTemporal;
     setTimeout(() => {
         boton.style.backgroundColor = colorOriginal;
-    }, 200); // Duración del color temporal en milisegundos
+    }, 200);
 }
 
 // Evento para el botón de encriptar
@@ -62,7 +62,6 @@ document.getElementById("btn-encriptar").addEventListener('click', function (eve
         textoSalida.style.display = 'block';
         textoSalida.value = textoEncriptado;
 
-        // Limpiar el textarea de entrada
         document.getElementById('input-text').value = '';
 
         if (textoEncriptado) {
@@ -79,18 +78,6 @@ document.getElementById("btn-encriptar").addEventListener('click', function (eve
     }
 });
 
-// Funciones para mostrar y ocultar alertas
-function mostrarAlerta(mensaje) {
-    let alerta = document.getElementById('alerta');
-    alerta.style.display = 'block';
-    alerta.textContent = mensaje;
-}
-
-function ocultarAlerta() {
-    let alerta = document.getElementById('alerta');
-    alerta.style.display = 'none';
-}
-
 // Evento para el botón de desencriptar
 document.getElementById("btn-desencriptar").addEventListener('click', function (event) {
     let textoEntrada = document.getElementById('input-text').value;
@@ -104,7 +91,6 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
         textoSalida.style.display = 'block';
         textoSalida.value = textoDesencriptado;
 
-        // Limpiar el textarea de entrada
         document.getElementById('input-text').value = '';
 
         if (textoDesencriptado) {
@@ -120,7 +106,6 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
         mostrarAlerta('El texto contiene caracteres no permitidos. Use solo letras minúsculas sin acentos ni caracteres especiales.');
     }
 });
-
 
 // Evento para el botón de copiar
 document.getElementById("btn-copiar").addEventListener('click', function () {
