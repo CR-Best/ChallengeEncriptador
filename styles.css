@@ -59,15 +59,6 @@ main {
     padding: 20px;
 }
 
-.alerta {
-    color: white;
-    background-color: red;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    text-align: center;
-}
-
 .sectionEncriptar {
     background-color: var(--color-principal);
     width: 50%;
@@ -77,6 +68,7 @@ main {
 
 .sectionDesencriptar {
     padding: 20px;
+    height: 600px;
     background-color: var(--color-fondoTexto);
     border-radius: 10px;
     box-shadow: 0px 12px 24px -11px rgba(5, 12, 156, 1);
@@ -91,13 +83,13 @@ main {
 
 .textoNuevo {
     width: 100%;
-    height: 500px;
     padding: 10px;
     background: none;
     outline: none;
     resize: none;
     border: none;
     font-size: 1.5rem;
+    min-height: 500px;
 }
 
 .containerInstrucciones {
@@ -109,7 +101,6 @@ main {
 
 .containerInstrucciones img {
     width: 20px;
-  
 }
 
 .containerBotones {
@@ -144,7 +135,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 10px;
+    top: 15px;
 }
 
 .btnCopiar {
@@ -155,7 +146,6 @@ button:hover {
 
 .textoEncriptado {
     width: 100%;
-    height: 500px;
     padding: 10px;
     outline: none;
     border: none;
@@ -163,6 +153,7 @@ button:hover {
     text-align: center;
     pointer-events: none;
     font-size: 1.5rem;
+    height: 500px;
 }
 
 .textoEncriptado.con-imagen {
@@ -183,15 +174,15 @@ footer {
 }
 
 .textoFooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: var(--fuente-inter);
     font-size: 1.5rem;
     color: var(--color-fondoTexto);
     background-color: var(--color-Dark-Blue);
     height: 100px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banderaES {
@@ -202,17 +193,11 @@ footer {
 /* Media queries para pantallas responsivas */
 @media (max-width: 1200px) {
     .containerLogo img {
-        position: relative;
         margin-left: 50px;
     }
 
     .containerTitulo {
-        font-family: var(--fuente-titulo);
-        letter-spacing: 5px;
-        width: 100%;
-        text-align: center;
         margin-right: 50px;
-        color: var(--color-Dark-Blue);
     }
 
     main {
@@ -223,41 +208,31 @@ footer {
     .sectionEncriptar,
     .sectionDesencriptar {
         max-width: 100%;
-        margin-bottom: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    main {
-        background-color: orange;
-        margin: auto;
-    }
-    .containerInstrucciones{
-        margin-top: 50%;
+    .containerInstrucciones {
+        margin-top: 10px;
         width: 100%;
     }
+
     .containerBotones {
         display: block;
-       
     }
 
     .sectionEncriptar,
     .sectionDesencriptar {
         max-width: 100%;
-        height: 30%;
         width: 700px;
-        padding: 20px;
-    }
-
-    .textoEncriptado {
-        max-height: 85%;
-        background-size: 100%;
+        height: 30%;
+        padding: 0 20px;
     }
 
     button {
         font-size: 1.2rem;
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
     }
 
     header {
@@ -265,7 +240,7 @@ footer {
     }
 
     .textoNuevo {
-        height: 75px;
+        min-height: 150px;
     }
 }
 
@@ -273,17 +248,22 @@ footer {
     .sectionEncriptar,
     .sectionDesencriptar {
         max-width: 100%;
-        width: 350px;
-        height: 350px;
+        width: 100%;
+        padding: 10px;
+        height: 30vh; /* Ajusta la altura a la mitad del tamaño previo */
     }
 
-    .containerInstrucciones{
-        margin-top: 28%;
-    }
     .textoEncriptado {
-        height: 80%;
-        background-size: 100%;
-        
+        max-height: 100px;
+        width: 100%;
+        height: auto;
+    }
+
+    .con-imagen {
+        background-size: contain;
+        background-position: center;
+        max-height: 100px;
+        padding: 10px;
     }
 
     button {
@@ -292,11 +272,12 @@ footer {
         margin-bottom: 10px;
     }
 
-    .textoFooter {
-        font-size: 1rem;
+    .btnCopiar {
+        margin-top: 5px;
+        bottom: 10px;
     }
 
-    h1 {
+    .textoFooter, h1 {
         font-size: 1rem;
     }
 
@@ -308,18 +289,4 @@ footer {
         width: 100%;
         padding-left: 0px;
     }
-
-    .textoFooter {
-        font-size: 1rem;
-    }
-
-    .sectionDesencriptar {
-        margin: 0;
-        padding: 0;
-    }
-
-    .textoNuevo {
-        height: 75px;
-    }
-  
 }
