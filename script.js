@@ -4,13 +4,26 @@ let letraEncriptada = ['enter', 'imes', 'ai', 'ober', 'ufat'];
 
 // Función para encriptar el texto usando arrays
 function encriptarTexto(texto) {
+    // 1. Se define una variable llamada "textoEncriptado" y se le asigna el valor del texto original que recibe la función como parámetro.
     let textoEncriptado = texto;
+    
+    // 2. Se inicia un bucle "for" que recorrerá el array "letraOriginal" desde la primera posición (índice 0) hasta la última.
     for (let i = 0; i < letraOriginal.length; i++) {
+        // 3. En cada iteración, se crea una nueva expresión regular usando "RegExp". 
+        //    Esta expresión busca todas las ocurrencias de una letra específica del array "letraOriginal".
+        //    El parámetro "g" indica que debe buscarse esa letra en todo el texto, no solo en la primera coincidencia.
         let expresionRegular = new RegExp(letraOriginal[i], "g");
+        
+        // 4. Usando el método "replace", se sustituye cada aparición de la letra encontrada (usando la expresión regular)
+        //    por el texto correspondiente en el array "letraEncriptada". 
+        //    El texto encriptado se va almacenando en la variable "textoEncriptado".
         textoEncriptado = textoEncriptado.replace(expresionRegular, letraEncriptada[i]);
     }
+    
+    // 5. Después de que todas las letras han sido sustituidas, la función retorna el texto completamente encriptado.
     return textoEncriptado;
 }
+
 
 // Función para desencriptar el texto usando arrays
 function desencriptarTexto(texto) {
