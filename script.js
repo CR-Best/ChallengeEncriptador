@@ -36,10 +36,20 @@ function desencriptarTexto(texto) {
 }
 
 // Función para validar el texto
+// Esta función toma un texto como argumento y verifica si cumple con ciertas reglas usando una expresión regular.
 function validarTexto(texto) {
+    
+    // Declaración de la expresión regular
+    // Aquí se define una expresión regular que solo permite letras minúsculas (de la 'a' a la 'z') y espacios.
+    // ^ indica el inicio de la cadena, $ indica el final, y + significa "uno o más de lo que está entre corchetes".
     let expresionRegular = /^[a-z\s]+$/;
+
+    // Validación del texto usando la expresión regular
+    // El método test() de la expresión regular comprueba si el texto cumple con el patrón definido.
+    // Si cumple, devuelve true; si no, devuelve false.
     return expresionRegular.test(texto);
 }
+
 
 // Función para mostrar alertas
 function mostrarAlerta(mensaje) {
@@ -54,40 +64,62 @@ function ocultarAlerta() {
     alerta.style.display = 'none';
 }
 
-// Función para cambiar el color de fondo del botón temporalmente
-function cambiarColorTemporalmente(boton, colorOriginal, colorTemporal) {
-    boton.style.backgroundColor = colorTemporal;
-    setTimeout(() => {
-        boton.style.backgroundColor = colorOriginal;
-    }, 200);
-}
-
 // Evento para el botón de encriptar
+// Obtiene el elemento con el id "btn-encriptar" y agrega un evento 'click'
+// Esto significa que cuando el botón con id "btn-encriptar" sea presionado, se ejecutará la función anónima que sigue.
 document.getElementById("btn-encriptar").addEventListener('click', function (event) {
+
+    // Obtiene el valor del elemento con el id "input-text" (donde el usuario ingresa texto).
     let textoEntrada = document.getElementById('input-text').value;
 
+    // Verifica si el texto ingresado es válido usando la función validarTexto.
     if (validarTexto(textoEntrada)) {
+        
+        // Si el texto es válido, oculta cualquier alerta que pudiera estar visible.
         ocultarAlerta();
+
+        // Encripta el texto ingresado usando la función encriptarTexto.
         let textoEncriptado = encriptarTexto(textoEntrada);
+
+        // Obtiene el elemento donde se mostrará el texto encriptado.
         let textoSalida = document.getElementById('output-text');
+
+        // Hace visible el campo de texto de salida (donde se mostrará el texto encriptado).
         textoSalida.style.display = 'block';
+
+        // Establece el valor del campo de texto de salida al texto encriptado.
         textoSalida.value = textoEncriptado;
 
+        // Limpia el campo de entrada de texto.
         document.getElementById('input-text').value = '';
 
+        // Si hay un texto encriptado válido...
         if (textoEncriptado) {
+            
+            // Oculta la imagen de marcador de posición.
             document.getElementById('placeholder-img').style.display = 'none';
+            
+            // Hace visible el botón "copiar".
             document.getElementById('btn-copiar').style.display = 'block';
+
+            // Remueve la clase 'con-imagen' del campo de salida, posiblemente para ajustar el diseño.
             textoSalida.classList.remove('con-imagen');
         } else {
+            // Si no hay texto encriptado, muestra la imagen de marcador de posición.
             document.getElementById('placeholder-img').style.display = 'block';
+            
+            // Oculta el botón "copiar".
             document.getElementById('btn-copiar').style.display = 'none';
+
+            // Añade la clase 'con-imagen' al campo de salida, posiblemente para ajustar el diseño.
             textoSalida.classList.add('con-imagen');
         }
     } else {
-        mostrarAlerta('El texto contiene caracteres no permitidos. Use solo letras minúsculas sin acentos ni caracteres especiales.');
+        // Si el texto no es válido, muestra una alerta indicando que el texto contiene caracteres no permitidos.
+        mostrarAlerta('El texto contiene caracteres no permitidos o está vacio. Use solo letras minúsculas sin acentos ni caracteres especiales.');
     }
 });
+
 
 // Evento para el botón de desencriptar
 document.getElementById("btn-desencriptar").addEventListener('click', function (event) {
@@ -120,6 +152,10 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
 document.getElementById("btn-copiar").addEventListener('click', function () {
     let textoSalida = document.getElementById('output-text');
 
+    // Selecciona el texto en el campo de salida
+    textoSalida.select();
+    textoSalida.setSelectionRange(0, textoSalida.value.length); // Para asegurar la selección en dispositivos móviles
+
     // Usando la API de Portapapeles para copiar texto
     navigator.clipboard.writeText(textoSalida.value)
         .then(() => {
@@ -129,4 +165,5 @@ document.getElementById("btn-copiar").addEventListener('click', function () {
         .catch(err => {
             console.error('Error al copiar el texto: ', err);
         });
+
 });
