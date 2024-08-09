@@ -144,7 +144,7 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
             textoSalida.classList.add('con-imagen');
         }
     } else {
-        mostrarAlerta('El texto contiene caracteres no permitidos. Use solo letras minúsculas sin acentos ni caracteres especiales.');
+        mostrarAlerta('El texto contiene caracteres no permitidos o está vacio. Use solo letras minúsculas sin acentos ni caracteres especiales.');
     }
 });
 
