@@ -65,8 +65,6 @@ function cambiarColorTemporalmente(boton, colorOriginal, colorTemporal) {
 // Evento para el botón de encriptar
 document.getElementById("btn-encriptar").addEventListener('click', function (event) {
     let textoEntrada = document.getElementById('input-text').value;
-    let boton = event.currentTarget;
-    cambiarColorTemporalmente(boton, "#0099ff", "#ff6600");
 
     if (validarTexto(textoEntrada)) {
         ocultarAlerta();
@@ -94,8 +92,6 @@ document.getElementById("btn-encriptar").addEventListener('click', function (eve
 // Evento para el botón de desencriptar
 document.getElementById("btn-desencriptar").addEventListener('click', function (event) {
     let textoEntrada = document.getElementById('input-text').value;
-    let boton = event.currentTarget;
-    cambiarColorTemporalmente(boton, "#0099ff", "#ff6600");
 
     if (validarTexto(textoEntrada)) {
         ocultarAlerta();
@@ -123,6 +119,14 @@ document.getElementById("btn-desencriptar").addEventListener('click', function (
 // Evento para el botón de copiar
 document.getElementById("btn-copiar").addEventListener('click', function () {
     let textoSalida = document.getElementById('output-text');
-    textoSalida.select();
-    document.execCommand('copy');
+
+    // Usando la API de Portapapeles para copiar texto
+    navigator.clipboard.writeText(textoSalida.value)
+        .then(() => {
+            // Puedes mostrar una notificación o realizar alguna acción después de copiar
+            console.log('Texto copiado al portapapeles');
+        })
+        .catch(err => {
+            console.error('Error al copiar el texto: ', err);
+        });
 });
