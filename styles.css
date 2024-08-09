@@ -59,6 +59,15 @@ main {
     padding: 20px;
 }
 
+.alerta {
+    color: white;
+    background-color: red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .sectionEncriptar {
     background-color: var(--color-principal);
     width: 50%;
@@ -73,6 +82,7 @@ main {
     border-radius: 10px;
     box-shadow: 0px 12px 24px -11px rgba(5, 12, 156, 1);
     width: 50%;
+    position: relative; /* Para el posicionamiento del botón */
 }
 
 .textoNuevo::placeholder {
@@ -80,16 +90,19 @@ main {
     color: var(--color-Dark-Blue);
     font-size: 1.6rem;
 }
+textarea{
+    min-height: 500px;
+}
 
 .textoNuevo {
     width: 100%;
+    height:fit-content;
     padding: 10px;
     background: none;
     outline: none;
     resize: none;
     border: none;
     font-size: 1.5rem;
-    min-height: 500px;
 }
 
 .containerInstrucciones {
@@ -109,6 +122,7 @@ main {
     padding-top: 5px;
 }
 
+/* Estilo base para los botones */
 button {
     width: 45%;
     height: 50px;
@@ -117,10 +131,18 @@ button {
     font-size: 1.5rem;
     cursor: pointer;
     border: 2px solid var(--color-Dark-Blue);
+    transition: background-color 0.3s, color 0.3s;
 }
+
 
 button:hover {
     background-color: var(--color-Dark-Blue);
+    color: #FFFFFF;
+}
+
+/* Estilo para el botón en estado activo */
+button:active {
+    background-color: #ff6600; /* Color temporal al hacer clic */
     color: #FFFFFF;
 }
 
@@ -134,18 +156,22 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: 15px;
+    position: absolute; /* Asegura que el botón esté correctamente posicionado */
+    bottom: 10px; /* Ajusta el espacio desde el fondo del contenedor */
+    left: 50%; /* Centra el botón horizontalmente */
+    transform: translateX(-50%); /* Ajusta el botón para que quede centrado */
 }
 
 .btnCopiar {
     background-color: var(--color-boton);
     color: var(--color-Dark-Blue);
     border: 2px solid var(--color-Dark-Blue);
+    width: 200px;
 }
 
 .textoEncriptado {
     width: 100%;
+    height: 500px;
     padding: 10px;
     outline: none;
     border: none;
@@ -153,7 +179,6 @@ button:hover {
     text-align: center;
     pointer-events: none;
     font-size: 1.5rem;
-    height: 500px;
 }
 
 .textoEncriptado.con-imagen {
@@ -174,15 +199,15 @@ footer {
 }
 
 .textoFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: var(--fuente-inter);
     font-size: 1.5rem;
     color: var(--color-fondoTexto);
     background-color: var(--color-Dark-Blue);
     height: 100px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .banderaES {
@@ -197,7 +222,12 @@ footer {
     }
 
     .containerTitulo {
+        font-family: var(--fuente-titulo);
+        letter-spacing: 5px;
+        width: 100%;
+        text-align: center;
         margin-right: 50px;
+        color: var(--color-Dark-Blue);
     }
 
     main {
@@ -207,7 +237,11 @@ footer {
 
     .sectionEncriptar,
     .sectionDesencriptar {
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .btnCopiar{
+        width: 200px;
     }
 }
 
@@ -223,70 +257,34 @@ footer {
 
     .sectionEncriptar,
     .sectionDesencriptar {
-        max-width: 100%;
-        width: 700px;
-        height: 30%;
-        padding: 0 20px;
+        width: 100%;
+        height: auto;
+        padding: 0px 20px;
     }
 
     button {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        margin: 5px 0;
         width: 100%;
-        margin-bottom: 25px;
     }
 
-    header {
-        padding-left: 50px;
+    .textoEncriptado {
+        font-size: 1.3rem;
     }
 
-    .textoNuevo {
-        min-height: 150px;
+    .btnCopiar {
+        width: 200px;
     }
 }
 
 @media (max-width: 390px) {
-    .sectionEncriptar,
-    .sectionDesencriptar {
-        max-width: 100%;
-        width: 100%;
-        padding: 10px;
-        height: 30vh; /* Ajusta la altura a la mitad del tamaño previo */
+    
+    .textoFooter {
+        font-size: 1.2rem;
     }
 
-    .textoEncriptado {
-        max-height: 100px;
-        width: 100%;
-        height: auto;
-    }
-
-    .con-imagen {
-        background-size: contain;
-        background-position: center;
-        max-height: 100px;
-        padding: 10px;
-    }
-
-    button {
-        font-size: 1rem;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .btnCopiar {
-        margin-top: 5px;
-        bottom: 10px;
-    }
-
-    .textoFooter, h1 {
-        font-size: 1rem;
-    }
-
-    .imgLogo {
-        padding-right: 20px;
-    }
-
-    header {
-        width: 100%;
-        padding-left: 0px;
+    .banderaES {
+        height: 30px;
+        padding-left: 20px;
     }
 }
